@@ -7,10 +7,15 @@ body{
     background-color: var(--purple);
 }
 
-
+input{
+    border: 1px solid var(--purple);
+    border-radius: 5px;
+}
 
 /* utils */
-
+[class*= col]{
+    border: 2px solid green
+}
 
 /* panel */
 .panel{

@@ -18,7 +18,6 @@ const travelKm = document.getElementById('kms');
 const button = document.getElementById('generate');
 // // console.log(userFinalPrice, userAge, travelKm, button);
 
-
 button.addEventListener('click', function(){
     // valore di età e km
     const valueAge = parseInt(userAge.value);
@@ -26,7 +25,7 @@ button.addEventListener('click', function(){
     // // console.log(valueAge, valueKm);
 
     // età o km non validi
-    if (isNaN(valueAge) || isNaN(valueKm)){
+    if (isNaN(valueAge) || isNaN(valueKm) || valueAge === 0 || valueKm === 0){
         alert(`Per favore, inserisci numeri validi`)
     } else {    
         // prezzo al km standard del biglietto

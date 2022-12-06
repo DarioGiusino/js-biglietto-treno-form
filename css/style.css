@@ -1,6 +1,10 @@
+:root{
+    --purple: #b91450;
+}
+
 /* generics */
 body{
-    background-color: #b91450;
+    background-color: var(--purple);
 }
 
 

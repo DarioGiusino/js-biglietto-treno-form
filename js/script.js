@@ -42,11 +42,15 @@ button.addEventListener('click', function(){
         const bigDiscount = defaultPrice * 40 / 144;
         const overAge = 65;
         // ticket variables
+            // name
         const valueName = userName.value;
         const ticketName = document.getElementById ('ticket-name');
+            // type
         let ticketType = document.getElementById ('ticket-type');
-        ticketType.innerText = `Biglietto Standard`
-        const carriage = document.getElementById ('carriage');
+        ticketType.innerText = `Biglietto Standard`;
+            // carriage
+        let carriage = document.getElementById ('carriage');
+            // code
         const cpCode = document.getElementById ('cp-code');
 
         // discount math
@@ -57,8 +61,12 @@ button.addEventListener('click', function(){
             defaultPrice = (defaultPrice - bigDiscount).toFixed(2);
             ticketType.innerText = `Biglietto over 65`;
         }
-        // // console.log(defaultPrice);
-        
+
+        // carriage math
+        const random = Math.random();
+        const max = 10
+        carriage.innerText = Math.floor(random * max) + 1;
+
         // print on page and console
         userFinalPrice.innerText = `€ ${defaultPrice}`;
         console.log(`€ ${defaultPrice}`);

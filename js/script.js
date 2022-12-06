@@ -29,32 +29,33 @@ button.addEventListener('click', function(){
     // get elements from DOM after click
     const valueAge = parseInt(userAge.value);
     const valueKm = parseInt(travelKm.value);
-    const valueName = userName.value;
-    const ticketName = document.getElementById ('ticket-name');
-    const ticketType = document.getElementById ('ticket-type');
-    const carriage = document.getElementById ('carriage');
-    const cpCode = document.getElementById ('cp-code');
-
+    
     // age or km not valid
     if (isNaN(valueAge) || isNaN(valueKm) || valueAge === 0 || valueKm === 0){
         alert(`Per favore, inserisci numeri validi`)
     } else {    
         // ticket standard price
         let defaultPrice = (valueKm * 0.21).toFixed(2);
-        // // console.log(defaultPrice);
-        
         // discounts variables
         const littleDiscount = defaultPrice * 20 / 144;
         const underAge = 18;
         const bigDiscount = defaultPrice * 40 / 144;
         const overAge = 65;
-        // // console.log(littleDiscount, bigDiscount);
+        // ticket variables
+        const valueName = userName.value;
+        const ticketName = document.getElementById ('ticket-name');
+        let ticketType = document.getElementById ('ticket-type');
+        ticketType.innerText = `Biglietto Standard`
+        const carriage = document.getElementById ('carriage');
+        const cpCode = document.getElementById ('cp-code');
 
         // discount math
         if (valueAge < underAge){
             defaultPrice = (defaultPrice - littleDiscount).toFixed(2);
+            ticketType.innerText = `Biglietto under 18`;
         } else if (valueAge >= overAge){
             defaultPrice = (defaultPrice - bigDiscount).toFixed(2);
+            ticketType.innerText = `Biglietto over 65`;
         }
         // // console.log(defaultPrice);
         

@@ -30,19 +30,19 @@
                     </div>
 
                     <div class="col-4">
-                        <label class="d-block pb-3" for="prova2">Km da percorrere</label>
-                        <input type="text" id="prova2">
+                        <label class="d-block pb-3" for="kms">Km da percorrere</label>
+                        <input type="text" id="kms" class="text-center">
                     </div>
 
                     <div class="col-4">
-                        <label class="d-block pb-3" for="prova3">Fascia età</label>
-                        <input type="text" id="prova3">
+                        <label class="d-block pb-3" for="user-age">Fascia d'età</label>
+                        <input type="text" id="user-age">
                     </div>
 
                     <!-- button fields -->
                     <div class="col-6 offset-3 align-self-end">
-                        <button>ciao</button>
-                        <button>ciao</button>
+                        <button id="generate">Genera</button>
+                        <button id="erase">Annulla</button>
                     </div>
                 </div>
             </div>
@@ -50,13 +50,13 @@
 
 
         <!-- ------------------------ working part --------------------------- -->
-        <label for="user-age">Età</label>
-        <input type="text" id="user-age">
+        <!-- <label for="user-age">Età</label>
+        <input type="text" id="user-age"> -->
 
-        <label for="kms">Chilometri</label>
-        <input type="text" id="kms">
+        <!-- <label for="kms">Chilometri</label>
+        <input type="text" id="kms"> -->
 
-        <button id="generate">Genera</button>
+        <!-- <button id="generate">Genera</button> -->
 
         <p id="final-price"></p>
         <!-- ---------------------------------------------------------------- -->
@@ -68,7 +68,36 @@
                 <h1 class="text-uppercase text-center text-white">il tuo biglietto</h1>
             </div>
             <!-- ticket box -->
-            <div class="col-12 panel">
+            <div class="col-12 panel p-3 text-black d-flex flex-column">
+                <h5 class="text-uppercase">dettaglio passeggeri</h5>
+                <div class="row mx-0 h-100">
+                    <!-- ticket name -->
+                    <div class="col-3 bg-ticket p-3 fw-bold">
+                        <h4 class="text-uppercase">nome passeggero</h4>
+                        <p id="userName"></p>
+                    </div>
+                    <!-- ticket details -->
+                    <div class="col-9">
+                        <div class="row h-100 p-3 border-contain">
+                            <div class="col-3 d-flex flex-column justify-content-between">
+                              <h5>Offerta</h5>
+                              <p class="mb-0 text-capitalize"></p>
+                            </div>
+                            <div class="col-3 d-flex flex-column justify-content-between">
+                              <h5>Carrozza</h5>
+                              <p class="mb-0 text-capitalize"></p>
+                            </div>
+                            <div class="col-3 d-flex flex-column justify-content-between">
+                                <h5>Codice CP</h5>
+                                <p class="mb-0 text-capitalize"></p>
+                            </div>
+                            <div class="col-3 d-flex flex-column justify-content-between">
+                                <h5>Costo biglietto</h5>
+                                <p class="mb-0 text-capitalize"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

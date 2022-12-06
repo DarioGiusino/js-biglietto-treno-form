@@ -12,15 +12,25 @@ input{
     border-radius: 5px;
 }
 
+button{
+    border-radius: 5px;
+}
+
 /* utils */
-[class*= col]{
-    border: 2px solid green
+.bg-ticket{
+    background-color: #808080;
+    min-height: 80px;
+}
+
+.border-contain{
+    border-top: 2px solid #808080;
+    border-bottom: 2px solid #808080;
 }
 
 /* panel */
 .panel{
     color: var(--purple);
     background-color: #fff;
-    min-height: 250px;
+    min-height: 200px;
     border-radius: 20px;
 }

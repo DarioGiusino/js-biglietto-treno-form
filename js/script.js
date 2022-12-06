@@ -45,9 +45,10 @@ button.addEventListener('click', function(){
         } else if (valueAge >= overAge){
             defaultPrice = (defaultPrice - bigDiscount).toFixed(2);
         }
-        // console.log(defaultPrice);
+        // // console.log(defaultPrice);
         
         // stampo su pagina
         userFinalPrice.innerText = `€ ${defaultPrice}`;
+        console.log(`€ ${defaultPrice}`);
     }
 });

@@ -14,28 +14,43 @@
 </head>
 <body>
     <main class="container p-5">
-        <div class="row">
+        <!-- ticket calculation row -->
+        <div class="row pb-3">
+            <!-- ticket calculation title -->
             <div class="col-12 pb-3">
-                <h1 class="text-uppercase text-center">calcola il prezzo del tuo biglietto</h1>
+                <h1 class="text-uppercase text-center text-white">calcola il prezzo del tuo biglietto</h1>
             </div>
-            <div class="col-12">
+            <!-- ticket calculation box -->
+            <div class="col-12 panel">
+                
 
             </div>
         </div>
+
+
+        <!-- ------------------------ working part --------------------------- -->
+        <label for="user-age">Età</label>
+        <input type="text" id="user-age">
+
+        <label for="kms">Chilometri</label>
+        <input type="text" id="kms">
+
+        <button id="generate">Genera</button>
+
+        <p id="final-price"></p>
+        <!-- ---------------------------------------------------------------- -->
+
+         <!-- ticket row -->
+         <div class="row pb-3">
+            <!-- ticket title -->
+            <div class="col-12 pb-3">
+                <h1 class="text-uppercase text-center text-white">il tuo biglietto</h1>
+            </div>
+            <!-- ticket box -->
+            <div class="col-12 panel">
+            </div>
+        </div>
     </main>
-
-
-
-
-    <!-- working part -->
-    <label for="user-age">Età</label>
-    <input type="text" id="user-age">
-
-    <label for="kms">Chilometri</label>
-    <input type="text" id="kms">
-
-    <button id="generate">Genera</button>
-
-    <p id="final-price"></p>
+    
 </body>
 </html>

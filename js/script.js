@@ -22,13 +22,18 @@ const userFinalPrice = document.getElementById('final-price');
 const userAge = document.getElementById('user-age');
 const travelKm = document.getElementById('kms');
 const button = document.getElementById('generate');
-// // console.log(userFinalPrice, userAge, travelKm, button);
+const userName = document.getElementById('user-name')
+// // console.log(userFinalPrice, userAge, travelKm, button, userName);
 
 button.addEventListener('click', function(){
-    // age and km values
+    // get elements from DOM after click
     const valueAge = parseInt(userAge.value);
     const valueKm = parseInt(travelKm.value);
-    // // console.log(valueAge, valueKm);
+    const valueName = userName.value;
+    const ticketName = document.getElementById ('ticket-name');
+    const ticketType = document.getElementById ('ticket-type');
+    const carriage = document.getElementById ('carriage');
+    const cpCode = document.getElementById ('cp-code');
 
     // age or km not valid
     if (isNaN(valueAge) || isNaN(valueKm) || valueAge === 0 || valueKm === 0){
@@ -56,5 +61,6 @@ button.addEventListener('click', function(){
         // print on page and console
         userFinalPrice.innerText = `€ ${defaultPrice}`;
         console.log(`€ ${defaultPrice}`);
+        ticketName.innerText = valueName;
     }
 });

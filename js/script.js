@@ -21,15 +21,22 @@ Realizzare un form in pagina in cui l’utente potrà inserire i dati e visualiz
 const userFinalPrice = document.getElementById('final-price');
 const userAge = document.getElementById('user-age');
 const travelKm = document.getElementById('kms');
+const userName = document.getElementById('user-name') // ! to transform in select tag
 const button = document.getElementById('generate');
-const userName = document.getElementById('user-name')
+const ticketName = document.getElementById ('ticket-name');
+const ticketType = document.getElementById ('ticket-type');
+const carriage = document.getElementById ('carriage');
+const cpCode = document.getElementById ('cp-code');
+// DOM element values
 const valueAge = parseInt(userAge.value);
 const valueKm = parseInt(travelKm.value);
+console.log(valueAge, valueKm);
+const valueName = userName.value; // ! to transform in select tag
 
 button.addEventListener('click', function(){
     // age or km not valid
     if (isNaN(valueAge) || isNaN(valueKm) || valueAge === 0 || valueKm === 0){
-        alert(`Per favore, inserisci numeri validi`)
+        alert(`Per favore, inserisci numeri validi!`)
     } else {    
         // ticket standard price
         let defaultPrice = (valueKm * 0.21);
@@ -38,17 +45,9 @@ button.addEventListener('click', function(){
         const underAge = 18;
         const bigDiscount = defaultPrice * 40 / 100;
         const overAge = 65;
-        // ticket variables
-            // name
-        const valueName = userName.value;
-        const ticketName = document.getElementById ('ticket-name');
-            // type
-        let ticketType = document.getElementById ('ticket-type');
+        
+        // ticket type
         ticketType.innerText = `Biglietto Standard`;
-            // carriage
-        let carriage = document.getElementById ('carriage');
-            // code
-        const cpCode = document.getElementById ('cp-code');
 
         // discount math
         if (valueAge < underAge){
@@ -59,10 +58,16 @@ button.addEventListener('click', function(){
             ticketType.innerText = `Biglietto over 65`;
         }
 
-        // carriage math
+        // random variables
         const random = Math.random();
-        const max = 10
+        const max = 10;
+        const maxCp = 9999;
+
+        // carriage math
         carriage.innerText = Math.floor(random * max) + 1;
+
+        // cp math
+        cpCode.innerText = Math.floor(random * maxCp) + 1;
 
         // print on page and console
         userFinalPrice.innerText = '€' + (defaultPrice).toFixed(2);

@@ -23,23 +23,20 @@ const userAge = document.getElementById('user-age');
 const travelKm = document.getElementById('kms');
 const button = document.getElementById('generate');
 const userName = document.getElementById('user-name')
-// // console.log(userFinalPrice, userAge, travelKm, button, userName);
+const valueAge = parseInt(userAge.value);
+const valueKm = parseInt(travelKm.value);
 
 button.addEventListener('click', function(){
-    // get elements from DOM after click
-    const valueAge = parseInt(userAge.value);
-    const valueKm = parseInt(travelKm.value);
-    
     // age or km not valid
     if (isNaN(valueAge) || isNaN(valueKm) || valueAge === 0 || valueKm === 0){
         alert(`Per favore, inserisci numeri validi`)
     } else {    
         // ticket standard price
-        let defaultPrice = (valueKm * 0.21).toFixed(2);
+        let defaultPrice = (valueKm * 0.21);
         // discounts variables
-        const littleDiscount = defaultPrice * 20 / 144;
+        const littleDiscount = defaultPrice * 20 / 100;
         const underAge = 18;
-        const bigDiscount = defaultPrice * 40 / 144;
+        const bigDiscount = defaultPrice * 40 / 100;
         const overAge = 65;
         // ticket variables
             // name
@@ -55,10 +52,10 @@ button.addEventListener('click', function(){
 
         // discount math
         if (valueAge < underAge){
-            defaultPrice = (defaultPrice - littleDiscount).toFixed(2);
+            defaultPrice = (defaultPrice - littleDiscount);
             ticketType.innerText = `Biglietto under 18`;
         } else if (valueAge >= overAge){
-            defaultPrice = (defaultPrice - bigDiscount).toFixed(2);
+            defaultPrice = (defaultPrice - bigDiscount);
             ticketType.innerText = `Biglietto over 65`;
         }
 
@@ -68,8 +65,8 @@ button.addEventListener('click', function(){
         carriage.innerText = Math.floor(random * max) + 1;
 
         // print on page and console
-        userFinalPrice.innerText = `€ ${defaultPrice}`;
-        console.log(`€ ${defaultPrice}`);
+        userFinalPrice.innerText = '€' + (defaultPrice).toFixed(2);
+        // // console.log(`€ ${defaultPrice}`);
         ticketName.innerText = valueName;
     }
 });

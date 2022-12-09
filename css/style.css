@@ -12,6 +12,12 @@ input{
     border-radius: 5px;
 }
 
+select{
+    width: 50%;
+    border: 1px solid var(--bs-code-color);
+    border-radius: 5px;
+}
+
 button{
     border-radius: 5px;
 }

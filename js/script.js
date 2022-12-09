@@ -21,41 +21,35 @@ Realizzare un form in pagina in cui l’utente potrà inserire i dati e visualiz
 const userFinalPrice = document.getElementById('final-price');
 const userAge = document.getElementById('user-age');
 const travelKm = document.getElementById('kms');
-const userName = document.getElementById('user-name') // ! to transform in select tag
+const userName = document.getElementById('user-name')
 const button = document.getElementById('generate');
 const ticketName = document.getElementById ('ticket-name');
 const ticketType = document.getElementById ('ticket-type');
 const carriage = document.getElementById ('carriage');
 const cpCode = document.getElementById ('cp-code');
-// DOM element values
-const valueAge = parseInt(userAge.value);
-const valueKm = parseInt(travelKm.value);
-console.log(valueAge, valueKm);
-const valueName = userName.value; // ! to transform in select tag
 
 button.addEventListener('click', function(){
-    // age or km not valid
-    if (isNaN(valueAge) || isNaN(valueKm) || valueAge === 0 || valueKm === 0){
-        alert(`Per favore, inserisci numeri validi!`)
-    } else {    
-        // ticket standard price
-        let defaultPrice = (valueKm * 0.21);
-        // discounts variables
-        const littleDiscount = defaultPrice * 20 / 100;
-        const underAge = 18;
-        const bigDiscount = defaultPrice * 40 / 100;
-        const overAge = 65;
-        
-        // ticket type
-        ticketType.innerText = `Biglietto Standard`;
+    // DOM element values
+    const valueAge = userAge.value;
+    const valueKm = parseInt(travelKm.value);
+    const valueName = userName.value;
 
-        // discount math
-        if (valueAge < underAge){
+    // age or km not valid
+    if (isNaN(valueKm) || valueKm === 0){
+        alert(`Per favore, inserisci numeri validi!`);
+    } else {    
+        // ticket & discount
+        let defaultPrice = (valueKm * 0.21);
+        let rateName = 'Biglietto Standard';
+        const littleDiscount = defaultPrice * 20 / 100;
+        const bigDiscount = defaultPrice * 40 / 100;
+        
+        if (valueAge == 'under'){
             defaultPrice = (defaultPrice - littleDiscount);
-            ticketType.innerText = `Biglietto under 18`;
-        } else if (valueAge >= overAge){
+            rateName = `Biglietto under 18`; 
+        } else if (valueAge == 'over'){
             defaultPrice = (defaultPrice - bigDiscount);
-            ticketType.innerText = `Biglietto over 65`;
+            rateName = `Biglietto over 65`;
         }
 
         // random variables
@@ -73,5 +67,6 @@ button.addEventListener('click', function(){
         userFinalPrice.innerText = '€' + (defaultPrice).toFixed(2);
         // // console.log(`€ ${defaultPrice}`);
         ticketName.innerText = valueName;
+        ticketType.innerText = rateName;
     }
 });
